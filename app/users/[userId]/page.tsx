@@ -1,3 +1,5 @@
+import { getSingleUser } from '@/lib/getSingleUser'
+import { getUserPosts } from '@/lib/getUserPosts'
 import React from 'react'
 
 type Props = {
@@ -6,7 +8,10 @@ type Props = {
 	}
 }
 
-const SingleUserPage = ({ params: { userId } }: Props) => {
+const SingleUserPage = async ({ params: { userId } }: Props) => {
+	const user: Promise<User> = await getSingleUser(userId)
+	const userPosts: Promise<Post[]> = await getUserPosts(userId)
+
 	return <div>SingleUserPage</div>
 }
 
