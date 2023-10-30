@@ -8,6 +8,8 @@ export const metadata: Metadata = {
 }
 
 const UsersPage = (props: Props) => {
+	const usersData: Promise<User[]> = getAllUsers()
+
 	return <div>page</div>
 }
 
