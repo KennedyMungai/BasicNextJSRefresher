@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Home() {
 	return (
-		<main className='h-screen w-screen p-10 flex justify-center'>
+		<main className='h-screen w-screen p-10 flex flex-col justify-center'>
 			<h1>Welcome</h1>
 			<p>
 				<Link href='/about'>About Page</Link>
