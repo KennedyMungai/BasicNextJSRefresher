@@ -1,4 +1,4 @@
-export const getSingleUser = async (id: number) => {
+export const getSingleUser = async (id: string) => {
     const userData = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
 
     if (!userData.ok) {
