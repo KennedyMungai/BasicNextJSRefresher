@@ -26,3 +26,10 @@ type Company = {
     catchPhrase: string
     bs: string
 }
+
+type Post = {
+    userId: number
+    id: number
+    title: string
+    body: string
+}
