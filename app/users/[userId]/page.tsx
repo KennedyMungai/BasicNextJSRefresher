@@ -3,6 +3,7 @@ import { getAllUsers } from '@/lib/getAllUsers'
 import { getSingleUser } from '@/lib/getSingleUser'
 import { getUserPosts } from '@/lib/getUserPosts'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 
 type Props = {
@@ -17,6 +18,12 @@ export async function generateMetadata({
 	const userData: Promise<User> = getSingleUser(userId)
 	const user: User = await userData
 
+	if (!user.username) {
+		return {
+			title: 'User not found'
+		}
+	}
+
 	return {
 		title: user.username,
 		description: `This is ${user.username}'s blog page`
@@ -29,6 +36,10 @@ const SingleUserPage = async ({ params: { userId } }: Props) => {
 
 	const user = await userData
 	const userPosts = await userPostsData
+
+	if (!user.username) {
+		return notFound()
+	}
 
 	return (
 		<>
