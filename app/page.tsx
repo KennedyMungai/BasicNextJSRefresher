@@ -5,7 +5,7 @@ export default function Home() {
 		<main className='h-screen w-screen p-10 flex flex-col justify-center'>
 			<h1>Welcome</h1>
 			<p>
-				<Link href='/about'>About Page</Link>
+				<Link href='/users'>Users Page</Link>
 			</p>
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
