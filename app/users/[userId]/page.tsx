@@ -1,11 +1,24 @@
 import UserPosts from '@/components/UserPosts'
 import { getSingleUser } from '@/lib/getSingleUser'
 import { getUserPosts } from '@/lib/getUserPosts'
+import { Metadata } from 'next'
 import React, { Suspense } from 'react'
 
 type Props = {
 	params: {
 		userId: string
+	}
+}
+
+export async function generateMetadata({
+	params: { userId }
+}: Props): Promise<Metadata> {
+	const userData: Promise<User> = getSingleUser(userId)
+	const user: User = await userData
+
+	return {
+		title: user.username,
+		description: `This is ${user.username}'s blog page`
 	}
 }
 
