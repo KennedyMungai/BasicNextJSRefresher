@@ -3,7 +3,7 @@ import { getAllUsers } from '@/lib/getAllUsers'
 import { getSingleUser } from '@/lib/getSingleUser'
 import { getUserPosts } from '@/lib/getUserPosts'
 import { Metadata } from 'next'
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 
 type Props = {
 	params: {
