@@ -1,4 +1,4 @@
-const getAllUsers = async () => {
+export const getAllUsers = async () => {
     const response = await fetch('https://jsonplaceholder.typicode.com/users');
 
     if (!response.ok) {
