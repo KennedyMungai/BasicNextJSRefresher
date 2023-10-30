@@ -1,8 +1,12 @@
 import React from 'react'
 
-type Props = {}
+type Props = {
+	params: {
+		userId: string
+	}
+}
 
-const SingleUserPage = (props: Props) => {
+const SingleUserPage = ({ params: { userId } }: Props) => {
 	return <div>SingleUserPage</div>
 }
 
