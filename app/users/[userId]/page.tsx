@@ -1,4 +1,5 @@
 import UserPosts from '@/components/UserPosts'
+import { getAllUsers } from '@/lib/getAllUsers'
 import { getSingleUser } from '@/lib/getSingleUser'
 import { getUserPosts } from '@/lib/getUserPosts'
 import { Metadata } from 'next'
@@ -43,3 +44,10 @@ const SingleUserPage = async ({ params: { userId } }: Props) => {
 }
 
 export default SingleUserPage
+
+export async function generateStaticParams() {
+	const usersData: Promise<User[]> = await getAllUsers()
+	const users: User[] = await usersData
+
+	return users.map((user) => ({ userId: user.id.toString() }))
+}
